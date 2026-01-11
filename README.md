@@ -56,3 +56,33 @@ When the refresh trigger is called, the system employs smart caching to minimize
 -   **Images (Icons & Screenshots)**: Updated if the local copy is older than **~7 days**.
 
 If the local files are newer than these thresholds, the refresh process skips downloading them.
+
+## Create a cron job on you raspberry pi
+
+Don't forget to replace **<USER>** for your user on the remote computer and the **IP**
+
+1. Send the files to your ssh:
+
+    ```bash
+    scp updateTRMNL_DB.sh <USER>@IP:/home/<USER>/updateTRMNL_DB.sh
+    scp updateDb.py <USER>@IP:/home/<USER>/updateDb.py
+    ```
+
+2. Connect to your raspberry via ssh.
+3. Make the script executable
+
+    ```bash
+    chmod +x ~ /home/<USER>/updateTRMNL_DB.sh
+    ```
+
+4. Open the Crontab file
+
+    ```bash
+    contab -e
+    ```
+
+5. Add the script to run once a day around 23:00 hours
+
+    ```bash
+    0 23 * * * /bin/bash /home/<USER>/updateTRMNL_DB.sh >> /home/<USER>/updateTRMNL_Db.log 2>&1
+    ```
