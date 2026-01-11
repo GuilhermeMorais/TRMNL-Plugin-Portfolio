@@ -1,4 +1,4 @@
-# TRMNL Plugins Viewer
+# TRMNL Plugins Portfolio
 
 A simple PHP-based viewer for your TRMNL plugins. This project fetches plugins associated with a specific TRMNL user ID and displays them in a responsive grid layout with filtering and sorting capabilities.
 
